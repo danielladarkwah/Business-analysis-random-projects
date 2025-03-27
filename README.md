@@ -1,7 +1,7 @@
 # Business-analysis-random-projects
 Providing actionable insights on datasets and creating reports to share with stakeholders. 
 
-Online Education Queries
+# Career Track Analysis Queries
 
 -- ddarkwah is a view which contains two merged tables that is career track info and career track student enrollment
 
@@ -99,8 +99,21 @@ WHERE
 GROUP BY cti.track_name
 ORDER BY avg_completion_time DESC;
     
-    
 
+# Online EducationPlatform Queries     
+-- Number of active and inactive users 
+SELECT
+    COUNT(CASE WHEN streak_length BETWEEN 1 AND 31 THEN user_id END) AS active_users,
+    COUNT(CASE WHEN streak_length = 0 THEN user_id END) AS inactive_users
+FROM
+    streaks_new;
+
+
+-- engagement trends of some selected users 
+SELECT *
+FROM streaks.user_streaks_sql
+WHERE user_id LIKE 181776
+;
 
 
 
